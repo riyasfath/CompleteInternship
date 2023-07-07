@@ -25,6 +25,7 @@ class HomeController extends GetxController {
 
   @override
   void onInit() async {
+    print("started");
     await _localAdBannerService.init();
     await _localCategoryService.init();
     await _localProductService.init();
@@ -58,11 +59,15 @@ class HomeController extends GetxController {
   }
 
   void getPopularCategories() async {
+    print('not loaded');
+
     try {
       isPopularCategoryLoading(true);
       if (_localCategoryService.getPopularCategories().isNotEmpty) {
         popularCategory.assignAll(_localCategoryService.getPopularCategories());
       }
+      print('not ld');
+
       var result = await RemotePopularCategoryService().get();
       if (result != null) {
         popularCategory.assignAll(popularCategoryFromJson(result.body));

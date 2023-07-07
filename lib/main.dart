@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -8,6 +7,7 @@ import 'package:my_grocery/model/product.dart';
 import 'package:my_grocery/route/app_page.dart';
 import 'package:my_grocery/route/app_route.dart';
 import 'package:my_grocery/theme/app_theme.dart';
+import 'package:my_grocery/view/dashboard/dashboard_binding.dart';
 
 import 'model/ad_banner.dart';
 import 'model/category.dart';
@@ -16,19 +16,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 
-
-
-
-
-
   //register adapters hive
-  
+
   Hive.registerAdapter(AdBannerAdapter());
   Hive.registerAdapter(CategoriesAdapter());
   Hive.registerAdapter(ProductAdapter());
   Hive.registerAdapter(UserAdapter());
-
-
 
   configLoading();
   runApp(const MyApp());
@@ -41,21 +34,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-
-
-getPages:  AppPage.list,
+      //initialBinding: DashboardBinding(),
+      getPages: AppPage.list,
       initialRoute: AppRoute.dashboard,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
       builder: EasyLoading.init(),
-
-
     );
   }
-
 }
-void configLoading(){
+
+void configLoading() {
   EasyLoading.instance
     ..displayDuration = const Duration(milliseconds: 2000)
     ..indicatorType = EasyLoadingIndicatorType.fadingCircle
@@ -70,8 +60,3 @@ void configLoading(){
     ..maskType = EasyLoadingMaskType.black
     ..dismissOnTap = false;
 }
-
-
-
-
-

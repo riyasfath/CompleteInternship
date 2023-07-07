@@ -60,21 +60,21 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-              // child: Text(
-              //
-              //   widget.payItem.price!.toString(),
-              //   style:const TextStyle(
-              //     fontSize: 100,
-              //     color: Colors.orange
-              //   ),
+              child: Text(
+
+                widget.payItem.price!.toString(),
+                style:const TextStyle(
+                  fontSize: 100,
+                  color: Colors.orange
+                ),
               //
               //
               // ),
-              child: TextField(
-                controller: amountController,
-                decoration: InputDecoration(
-                  hintText: "Enter amount"
-                ),
+              // child: TextField(
+              //   controller: amountController,
+              //   decoration: InputDecoration(
+              //     hintText: "Enter amount"
+              //   ),
               ),
 
             ),
@@ -86,7 +86,7 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
                 var options = {
                   'key': 'rzp_test_N4MJdLfBtoatdt',
 
-                  'amount': (int.parse(amountController.text) * 100).toString(), // 500.00 rs
+                  'amount': "${widget.payItem.price! * 100}", // 500.00 rs
                   'name': 'onDoor',
                   'description': 'Groceries',
                   'timeout': 300,

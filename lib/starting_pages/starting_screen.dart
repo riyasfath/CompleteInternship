@@ -14,27 +14,24 @@ class StartingPage extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              decoration:  const BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/starting.png'),
                   fit: BoxFit.cover,
                 ),
               ),
-
-              child:  const Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
                     'onDoor',
                     style: TextStyle(
-
                       fontSize: 50,
                       fontWeight: FontWeight.bold,
                       color: Colors.orange,
                     ),
                     textAlign: TextAlign.center,
                   ),
-
                 ],
               ),
             ),
@@ -60,8 +57,8 @@ class StartingPage extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: TextButton(
               onPressed: () {
-
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>  WelcomePage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WelcomePage()));
 
                 // Action when "Sign in" button is pressed
               },
